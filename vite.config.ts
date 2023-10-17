@@ -1,24 +1,14 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import createVuePlugin from '@vitejs/plugin-vue'
+import { VuexModule } from 'vuex-class-modules';
+
+VuexModule.__useHotUpdate = true; // default false
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  resolve: {
-    alias: {
-      vue: '@vue/compat'
-    }
-  },
-  plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          compatConfig: {
-            MODE: 3
-          }
-        }
-      }
-    })
-  ]
+  plugins: [createVuePlugin()]
+
 })

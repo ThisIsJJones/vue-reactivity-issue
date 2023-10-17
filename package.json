@@ -10,10 +10,8 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
   "dependencies": {
-    "@vue/compat": "^3.3.4",
     "@vue/compiler-sfc": "^3.3.4",
     "@vue/runtime-dom": "^3.3.4",
-    "inversify": "^5.0.1",
     "reflect-metadata": "^0.1.13",
     "tslib": "^2.4.1",
     "vue": "^3.3.4",

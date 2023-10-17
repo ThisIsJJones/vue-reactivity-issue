@@ -1,45 +1,19 @@
 <template>
     <div>
         TEST
-        {{ testStore.items }}
-        {{ testStore.filteredItems }}
+        {{ testModule.items }}
+        {{ testModule.filteredItems }}
     </div>
 </template>
 
 <script lang="ts">
-import { Component, Inject, Vue, toNative, Watch} from "vue-facing-decorator";
-import { Container } from "inversify";
-import {TestStore} from "../stores/TestStore";
+import { inject } from "vue";
+import { Component, Vue, toNative} from "vue-facing-decorator";
+import {TestModule} from "../modules/TestModule";
 
 @Component({})
 class TestComponent extends Vue {
-    @Inject({from: "container"}) readonly container!: Container;
-
-
-    get testStore() { return this.container.get(TestStore); }
-
-    mounted() {
-        this.testStore.load()
-        // this.renderMarkers()
-    }
-
-    @Watch("testStore.filteredItems")
-    renderMarkers() {
-
-        console.log("WATCHER")
-
-        for (const marker of this.markers) {
-            console.log(marker)
-        }
-
-    }
-
-    get markers() {
-       
-        return this.testStore.filteredItems
-
-    }
-
+    readonly testModule: TestModule = inject("TestModule")!;
 }
 export default toNative(TestComponent)
 </script>
