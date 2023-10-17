@@ -4,13 +4,4 @@ The issue put simply is that components are not getting updated when computed pr
 
 Each store has properties "items" and "filteredItems". "items" gets set as if it were a response to a network request and "filteredItems" should ideally recompute and notify components when it has changed. The components always get notified when "items" change, but depending on which component is rendered first or second will determine if they get notified on the computed "filteredItems".
  
-Here is the repository for what I believe to be the most basic requirements to reproduce the issue: 
-
-
-Packages I am using:
-"vue": "^3.3.4",
-"vuex": "^4.1.0",
-"vuex-class-modules": "^1.3.0",
-"inversify": "^5.0.1",
-"vue-facing-decorator": "^3.0.2",
-"typescript": "^4.9.5",
+Here is the repository for what I believe to be the most basic requirements to reproduce the issue: https://github.com/ThisIsJJones/vue-reactivity-issue
